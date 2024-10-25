@@ -113,7 +113,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
   local Top = Instance.new("Frame")
   Top.Name = "Top"
   Top.Parent = Main
-  Top.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+  Top.BackgroundColor3 = Color3.fromRGB(128, 0, 128)
   Top.Size = UDim2.new(0, 656, 0, 27)
 
   local TCNR = Instance.new("UICorner")
@@ -169,7 +169,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
   local Tab = Instance.new("Frame")
   Tab.Name = "Tab"
   Tab.Parent = Main
-  Tab.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+  Tab.BackgroundColor3 = Color3.fromRGB(128, 0, 128)
   Tab.Position = UDim2.new(0, 5, 0, 30)
   Tab.Size = UDim2.new(0, 150, 0, 365)
 
@@ -202,7 +202,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
   local Page = Instance.new("Frame")
   Page.Name = "Page"
   Page.Parent = Main
-  Page.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+  Page.BackgroundColor3 = Color3.fromRGB(128, 0, 128)
   Page.Position = UDim2.new(0.245426834, 0, 0.075000003, 0)
   Page.Size = UDim2.new(0, 490, 0, 365)
 
@@ -256,7 +256,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
     TabButton.Parent = ScrollTab
     TabButton.Name = text.."Server"
     TabButton.Text = text
-    TabButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+    TabButton.BackgroundColor3 = Color3.fromRGB(128, 0, 128)
       TabButton.BorderColor3 = Color3.fromRGB(161, 165, 162)
         TabButton.BorderSizePixel = 3
     TabButton.Size = UDim2.new(0, 130, 0, 23)
@@ -762,7 +762,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
 
       bar.Name = "bar"
       bar.Parent = AHEHE
-      bar.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+      bar.BackgroundColor3 = Color3.fromRGB(128, 0, 128)
       bar.Size = UDim2.new(0, 448, 0, 5)
 
       bar1.Name = "bar1"
@@ -800,7 +800,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
       valuecorner.Parent = slidervalue
 
       TextBox.Parent = slidervalue
-      TextBox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+      TextBox.BackgroundColor3 = Color3.fromRGB(128, 0, 128)
       TextBox.Position = UDim2.new(0, 1, 0, 1)
       TextBox.Size = UDim2.new(0, 63, 0, 16)
       TextBox.Font = Enum.Font.GothamSemibold
@@ -925,7 +925,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
 
       RealTextbox.Name = "RealTextbox"
       RealTextbox.Parent = Textbox
-      RealTextbox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+      RealTextbox.BackgroundColor3 = Color3.fromRGB(128, 0, 128)
       RealTextbox.BackgroundTransparency = 0
       RealTextbox.Position = UDim2.new(0, 360, 0, 4)
       RealTextbox.Size = UDim2.new(0, 100, 0, 24)
