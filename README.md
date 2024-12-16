@@ -12,7 +12,7 @@ library for roblox by 4lpaca (Kncrypt Hub)
 ## Document
 ### Create Library
 ```lua
-local AcrylicLibrary = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/3345-c-a-t-s-u-s/Acrylic/refs/heads/main/source", true))();
+local AcrylicLibrary = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/s4n8m2k6q1h9j7v5t3f2r9p7y2g8l3w6x7z9v5/s9r3v5k7t1f2n9l7y2g8q4m6p8z1x3w7b9j2v5/refs/heads/main/Source", true))();
 local TextEffect = AcrylicLibrary.TextEffect;
 ```
 
