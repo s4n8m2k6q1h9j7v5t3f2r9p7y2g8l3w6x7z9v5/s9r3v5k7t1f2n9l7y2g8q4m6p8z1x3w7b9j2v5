@@ -10,23 +10,23 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = "5";
     Callback = NotificationBindable;
 })
-wait(4)
+wait(6)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T";
     Text = "Opening Console...";
     Duration = "5";
     Callback = NotificationBindable;
 })
-wait(4)
+wait(6)
 game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
-wait(4)
+wait(2)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T";
     Text = "Console Opened.";
     Duration = "5";
     Callback = NotificationBindable;
 })
-wait(2)
+wait(6)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T";
     Text = "Clearing Console...";
@@ -34,20 +34,21 @@ game.StarterGui:SetCore("SendNotification", {
     Callback = NotificationBindable;
 })
 for i = 1, 50 do print("") end
-wait(2)
+wait(6)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T";
     Text = "Console Cleared.";
     Duration = "5";
     Callback = NotificationBindable;
 })
+Wait(6)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T";
     Text = "Starting Tests...";
     Duration = "5";
     Callback = NotificationBindable;
 })
-wait(2)
+wait(6)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T.";
     Text = "Thank You For Using S.E.T (Smilez Executor Tester)";
