@@ -192,14 +192,19 @@ print("--------------------------------------------------")
 wait(5)
 print("S.E.T LVL Test Running... Please Wait...")
 
--- Try to run printidentity() but ignore errors
-local success, err = pcall(function()
-    printidentity()
-end)
+function printlevel()
+    local success, err = pcall(function()
+        printidentity()
+    end)
 
-if not success then
-    warn("printidentity() failed: " .. err)
+    if not success then
+        warn("printidentity() failed: " .. err)
+    end
 end
+
+wait(1)
+
+printlevel()
 
 wait(5)
 print("--------------------------------------------------")
