@@ -29,6 +29,20 @@ game.StarterGui:SetCore("SendNotification", {
 wait(2)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T";
+    Text = "Clearing Console...";
+    Duration = "5";
+    Callback = NotificationBindable;
+})
+for i = 1, 50 do print("") end
+wait(2)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "S.E.T";
+    Text = "Console Cleared.";
+    Duration = "5";
+    Callback = NotificationBindable;
+})
+game.StarterGui:SetCore("SendNotification", {
+    Title = "S.E.T";
     Text = "Starting Tests...";
     Duration = "5";
     Callback = NotificationBindable;
