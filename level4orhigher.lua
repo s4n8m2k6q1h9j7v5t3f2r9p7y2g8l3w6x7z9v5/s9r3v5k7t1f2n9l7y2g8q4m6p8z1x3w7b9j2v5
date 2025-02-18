@@ -10,14 +10,14 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = "5";
     Callback = NotificationBindable;
 })
-wait(4)
+wait(6)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T";
     Text = "Opening S.E.T Custom Console...";
     Duration = "5";
     Callback = NotificationBindable;
 })
-wait(4)
+wait(6)
 
 -- Create the custom console GUI
 local screenGui = Instance.new("ScreenGui")
@@ -163,14 +163,14 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = "5";
     Callback = NotificationBindable;
 })
-wait(2)
+wait(6)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T";
     Text = "Starting Tests...";
     Duration = "5";
     Callback = NotificationBindable;
 })
-wait(2)
+wait(6)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T.";
     Text = "Thank You For Using S.E.T (Smilez Executor Tester)";
