@@ -192,19 +192,7 @@ print("--------------------------------------------------")
 wait(5)
 print("S.E.T LVL Test Running... Please Wait...")
 
-function printlevel()
-    local success, err = pcall(function()
-        printidentity()
-    end)
-
-    if not success then
-        warn("printidentity() failed: " .. err)
-    end
-end
-
-wait(1)
-
-printlevel()
+printidentity()
 
 wait(5)
 print("--------------------------------------------------")
