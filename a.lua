@@ -156,6 +156,22 @@ function error(message, level)
     oldError(message, level)
 end
 
+-- Function to capture printidentity() output and log it to the custom console
+local oldPrintIdentity = printidentity
+function printidentity()
+    -- Call the original printidentity function to get the identity
+    local success, identity = pcall(oldPrintIdentity)
+    
+    -- If the function runs successfully, log it
+    if success then
+        -- Log identity to the console, you can adjust the message format as needed
+        updateConsole("Current identity is " .. identity, "print")
+    else
+        -- Log error if printidentity fails
+        warn("Failed to get identity: " .. identity)
+    end
+end
+
 wait(4)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T";
@@ -192,7 +208,14 @@ print("--------------------------------------------------")
 wait(5)
 print("S.E.T LVL Test Running... Please Wait...")
 
-printidentity()
+-- Try to run printidentity() but ignore errors
+local success, err = pcall(function()
+    printidentity()
+end)
+
+if not success then
+    warn("printidentity() failed: " .. err)
+end
 
 wait(5)
 print("--------------------------------------------------")
