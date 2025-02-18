@@ -19,7 +19,6 @@ game.StarterGui:SetCore("SendNotification", {
 })
 wait(6)
 game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
-wait(2)
 game.StarterGui:SetCore("SendNotification", {
     Title = "S.E.T";
     Text = "Console Opened.";
@@ -63,22 +62,6 @@ print("--------------------------------------------------")
 wait(5)
 print("S.E.T UNC Test Running... Please Wait...")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/SmilezReal/Executor-Tests/refs/heads/main/UncTest.lua",true))()
-wait(5)
-print("--------------------------------------------------")
-print("S.E.T LVL Test Starting...")
-print("--------------------------------------------------")
-wait(5)
-print("S.E.T LVL Test Running... Please Wait...")
-
--- Try to run printidentity() but ignore errors
-local success, err = pcall(function()
-    printidentity()
-end)
-
-if not success then
-    warn("printidentity() failed: " .. err)
-end
-
 wait(5)
 print("--------------------------------------------------")
 print("S.E.T VULN Test Starting...")
