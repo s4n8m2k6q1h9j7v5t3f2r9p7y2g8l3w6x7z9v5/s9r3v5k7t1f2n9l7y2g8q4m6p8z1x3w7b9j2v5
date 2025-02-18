@@ -162,13 +162,18 @@ function printidentity()
     -- Call the original printidentity function to get the identity
     local success, identity = pcall(oldPrintIdentity)
     
-    -- If the function runs successfully, log it
+    -- If the function runs successfully and the identity is not nil, log it
     if success then
-        -- Log identity to the console, you can adjust the message format as needed
-        updateConsole("Current identity is " .. identity, "print")
+        if identity then
+            -- Log identity to the console, you can adjust the message format as needed
+            updateConsole("Current identity is " .. identity, "print")
+        else
+            -- Log if identity is nil (in case printidentity doesn't return anything)
+            warn("Failed to retrieve identity: Identity is nil")
+        end
     else
-        -- Log error if printidentity fails
-        warn("Failed to get identity: " .. identity)
+        -- Log error if printidentity fails (e.g., if pcall fails)
+        warn("printidentity() failed: " .. tostring(identity))
     end
 end
 
