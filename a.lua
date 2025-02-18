@@ -140,101 +140,21 @@ function print(...)
     oldPrint(unpack(args))
 end
 
--- Redirecting the warn function to the custom console
-local oldWarn = warn
-function warn(...)
-    local args = {...}
-    local message = table.concat(args, " ")
-    updateConsole(message, "warn")
-    oldWarn(unpack(args))
-end
-
--- Redirecting the error function to the custom console
-local oldError = error
-function error(message, level)
-    updateConsole(message, "error")
-    oldError(message, level)
-end
-
--- Function to capture printidentity() output and log it to the custom console
-local oldPrintIdentity = printidentity
-function printidentity()
-    -- Call the original printidentity function to get the identity
-    local success, identity = pcall(oldPrintIdentity)
-    
-    -- If the function runs successfully and the identity is not nil, log it
-    if success then
-        if identity then
-            -- Log identity to the console, you can adjust the message format as needed
-            updateConsole("Current identity is " .. identity, "print")
-        else
-            -- Log if identity is nil (in case printidentity doesn't return anything)
-            warn("Failed to retrieve identity: Identity is nil")
-        end
-    else
-        -- Log error if printidentity fails (e.g., if pcall fails)
-        warn("printidentity() failed: " .. tostring(identity))
-    end
-end
-
-wait(4)
-game.StarterGui:SetCore("SendNotification", {
-    Title = "S.E.T";
-    Text = "S.E.T Custom Console Opened.";
-    Duration = "5";
-    Callback = NotificationBindable;
-})
-wait(2)
-game.StarterGui:SetCore("SendNotification", {
-    Title = "S.E.T";
-    Text = "Starting Tests...";
-    Duration = "5";
-    Callback = NotificationBindable;
-})
-wait(2)
-game.StarterGui:SetCore("SendNotification", {
-    Title = "S.E.T.";
-    Text = "Thank You For Using S.E.T (Smilez Executor Tester)";
-    Duration = "20";
-    Callback = NotificationBindable;
-})
-
 -- Start of Test Outputs
 print("--------------------------------------------------")
-print("S.E.T UNC Test Starting...")
+print("S.E.T Test Starting...")
 print("--------------------------------------------------")
-wait(5)
-print("S.E.T UNC Test Running... Please Wait...")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SmilezReal/Executor-Tests/refs/heads/main/UncTest.lua",true))()
-wait(5)
-print("--------------------------------------------------")
-print("S.E.T LVL Test Starting...")
-print("--------------------------------------------------")
-wait(5)
-print("S.E.T LVL Test Running... Please Wait...")
 
--- Try to run printidentity() but ignore errors
-local success, err = pcall(function()
-    printidentity()
+-- Try to run printidentity() but log to custom console
+local success, identityMessage = pcall(function()
+    return printidentity()
 end)
 
-if not success then
-    warn("printidentity() failed: " .. err)
-end
-
-wait(5)
-print("--------------------------------------------------")
-print("S.E.T VULN Test Starting...")
-print("--------------------------------------------------")
-wait(5)
-print("S.E.T VULN Test Running... Please Wait...")
-
--- Also protect the VULN test loadstring
-local success, err = pcall(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SmilezReal/Executor-Tests/refs/heads/main/VulnTest.lua", true))()
-end)
-if not success then
-    warn("VULN Test failed: " .. err)
+if success then
+    -- Log identity message in the console if successful
+    updateConsole("Current identity: " .. identityMessage, "print")
+else
+    warn("Failed to retrieve identity: identity is nil")
 end
 
 wait(5)
