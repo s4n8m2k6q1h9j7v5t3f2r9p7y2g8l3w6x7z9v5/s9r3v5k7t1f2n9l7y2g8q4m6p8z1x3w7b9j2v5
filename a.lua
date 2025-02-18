@@ -140,21 +140,80 @@ function print(...)
     oldPrint(unpack(args))
 end
 
+-- Redirecting the warn function to the custom console
+local oldWarn = warn
+function warn(...)
+    local args = {...}
+    local message = table.concat(args, " ")
+    updateConsole(message, "warn")
+    oldWarn(unpack(args))
+end
+
+-- Redirecting the error function to the custom console
+local oldError = error
+function error(message, level)
+    updateConsole(message, "error")
+    oldError(message, level)
+end
+
+wait(4)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "S.E.T";
+    Text = "S.E.T Custom Console Opened.";
+    Duration = "5";
+    Callback = NotificationBindable;
+})
+wait(2)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "S.E.T";
+    Text = "Starting Tests...";
+    Duration = "5";
+    Callback = NotificationBindable;
+})
+wait(2)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "S.E.T.";
+    Text = "Thank You For Using S.E.T (Smilez Executor Tester)";
+    Duration = "20";
+    Callback = NotificationBindable;
+})
+
 -- Start of Test Outputs
 print("--------------------------------------------------")
-print("S.E.T Test Starting...")
+print("S.E.T UNC Test Starting...")
 print("--------------------------------------------------")
+wait(5)
+print("S.E.T UNC Test Running... Please Wait...")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SmilezReal/Executor-Tests/refs/heads/main/UncTest.lua",true))()
+wait(5)
+print("--------------------------------------------------")
+print("S.E.T LVL Test Starting...")
+print("--------------------------------------------------")
+wait(5)
+print("S.E.T LVL Test Running... Please Wait...")
 
--- Try to run printidentity() but log to custom console
-local success, identityMessage = pcall(function()
-    return printidentity()
+-- Try to run printidentity() but ignore errors
+local success, err = pcall(function()
+    printidentity()
 end)
 
-if success then
-    -- Log identity message in the console if successful
-    updateConsole("Current identity: " .. identityMessage, "print")
-else
-    warn("Failed to retrieve identity: identity is nil")
+if not success then
+    warn("printidentity() failed: " .. err)
+end
+
+wait(5)
+print("--------------------------------------------------")
+print("S.E.T VULN Test Starting...")
+print("--------------------------------------------------")
+wait(5)
+print("S.E.T VULN Test Running... Please Wait...")
+
+-- Also protect the VULN test loadstring
+local success, err = pcall(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SmilezReal/Executor-Tests/refs/heads/main/VulnTest.lua", true))()
+end)
+if not success then
+    warn("VULN Test failed: " .. err)
 end
 
 wait(5)
